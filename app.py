@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("ĐÁNH GIÁ KHẢ NĂNG CHO VAY")
+st.title("App cho vay khách hàng cá nhân_Thủy Tiên 036")
 
 # Nhập dữ liệu
 STV = st.number_input("Nhập số tiền muốn vay (triệu đồng)", min_value=0.0)
@@ -20,8 +20,8 @@ if st.button("Đánh giá khoản vay"):
         DTI = (PTMC + PTMM) / (TN - SNTGD * CPSH)
         LTV = STV / GTTSDB
 
-        st.write(f"**Chỉ số DTI:** {DTI*100:.2f}%")
-        st.write(f"**Chỉ số LTV:** {LTV*100:.2f}%")
+        st.write(f"**Chỉ số DTI:** {DTI * 100:.2f}%")
+        st.write(f"**Chỉ số LTV:** {LTV * 100:.2f}%")
 
         if DTI <= 0.7 and LTV <= 0.7 and 18 <= STKH < 70:
             st.success("ĐƯỢC CHO VAY")
@@ -29,4 +29,4 @@ if st.button("Đánh giá khoản vay"):
             st.error("KHÔNG ĐƯỢC CHO VAY")
 
     except ZeroDivisionError:
-        st.warning("Vui lòng nhập dữ liệu hợp lệ (không được chia cho 0).")
+        st.warning("Vui lòng kiểm tra lại thời gian vay, thu nhập hoặc giá trị tài sản đảm bảo.")
